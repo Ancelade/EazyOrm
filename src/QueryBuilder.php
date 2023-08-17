@@ -103,6 +103,9 @@ class QueryBuilder
      */
     public function groupBy(string $field): self
     {
+        if(empty($field)) {
+            throw new \InvalidArgumentException("Group by cannot be mepry");
+        }
         $this->groupByConditions[] = $field;
         return $this;
     }
